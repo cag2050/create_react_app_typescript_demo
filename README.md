@@ -1,3 +1,6 @@
+* 使用命令`create-react-app [project_name] --scripts-version=react-scripts-ts`创建的项目；
+create-react-app-typescript 地址：https://github.com/wmonk/create-react-app-typescript
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
