@@ -1,5 +1,9 @@
+* 引入了：antd
+
 * 使用命令`create-react-app [project_name] --scripts-version=react-scripts-ts`创建的项目；
 create-react-app-typescript 地址：https://github.com/wmonk/create-react-app-typescript
+
+* 引入antd，官方操作文档：https://ant.design/docs/react/use-in-typescript-cn
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
