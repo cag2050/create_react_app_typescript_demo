@@ -2,7 +2,33 @@
 create-react-app-typescript 地址：https://github.com/wmonk/create-react-app-typescript
 
 * 引入antd，官方操作文档：https://ant.design/docs/react/use-in-typescript-cn
-* 已经运行eject，没有配置 ts-import-plugin。
+* 已经运行eject，并配置 ts-import-plugin。
+* 配置 ts-import-plugin 方法：
+config/webpack.config.dev.js、config/webpack.config.prod.js 这2个文件，添加 getCustomTransformers 函数部分。
+getCustomTransformers 函数的[具体说明](https://github.com/TypeStrong/ts-loader#getcustomtransformers-----before-transformerfactory-after-transformerfactory--)。
+```
+{
+    test: /\.(ts|tsx)$/,
+    include: paths.appSrc,
+    use: [
+        {
+            loader: require.resolve('ts-loader'),
+            options: {
+                // disable type checker - we will use it in fork plugin
+                transpileOnly: true,
+                configFile: paths.appTsProdConfig,
+                getCustomTransformers: () => ({
+                    before: [tsImportPluginFactory({
+                        libraryDirectory: 'es',
+                        libraryName: 'antd',
+                        style: 'css',
+                    })]
+                })
+            },
+        },
+    ],
+},
+```
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
